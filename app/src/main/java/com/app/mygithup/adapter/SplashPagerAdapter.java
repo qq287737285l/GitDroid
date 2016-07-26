@@ -19,7 +19,9 @@ public class SplashPagerAdapter extends PagerAdapter {
     public SplashPagerAdapter(Context context) {
         view  = new View[]{new Pager0(context),new Pager1(context),new Pager2(context)};
     }
-
+public View getView(int position){
+    return view[position];
+}
     @Override
     public int getCount() {
 
