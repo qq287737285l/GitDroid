@@ -35,7 +35,6 @@ public class HotRepoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_hot_repo, container, false);
-        ButterKnife.bind(this, view);
         list = new ArrayList<>();
         title = new ArrayList<>();
         return view;
@@ -44,10 +43,12 @@ public class HotRepoFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ButterKnife.bind(this, view);
 
-        adapter = new HotRepoAdapter(getFragmentManager(), list, title);
-        adapter.setList(list);
-        adapter.setTitle(title);
+//        adapter = new HotRepoAdapter(getFragmentManager(), list, title);
+        adapter = new HotRepoAdapter(getChildFragmentManager());
+//        adapter.setList(list);
+//        adapter.setTitle(title);
         viewPager.setAdapter(adapter);
 //        viewPager.setOffscreenPageLimit(list.size());
         tabLayout.setupWithViewPager(viewPager);

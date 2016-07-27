@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.app.mygithup.fragment.HotRepoCommentFragment;
+
 import java.util.List;
 
 /**
@@ -12,6 +14,9 @@ import java.util.List;
 public class HotRepoAdapter extends FragmentPagerAdapter {
     private List<Fragment> list;
     private List<String> title;
+    public HotRepoAdapter(FragmentManager fm) {
+        super(fm);
+    }
     public HotRepoAdapter(FragmentManager fm,List<Fragment> list,List<String> title) {
         super(fm);
         this.list = list;
@@ -36,16 +41,19 @@ public class HotRepoAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return list.get(position);
+//        return list.get(position);
+        return new HotRepoCommentFragment();
     }
 
     @Override
     public int getCount() {
-        return list.size();
+//        return list.size();
+        return 10;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return title.get(position);
+//        return title.get(position);
+        return "title"+position;
     }
 }

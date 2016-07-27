@@ -59,7 +59,10 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView.OnNavigationItemSelectedListener selectedListener = new NavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(MenuItem item) {
-            return false;
+            switch (item.getItemId()){
+
+            }
+            return true;
         }
     };
 }
