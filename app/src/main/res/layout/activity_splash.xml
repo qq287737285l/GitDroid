@@ -28,6 +28,7 @@
             android:layout_weight="1"
             style="?attr/buttonBarButtonStyle"
             android:text="@string/login_github"
+            android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="@dimen/sp_14"/>
         <ImageView
@@ -43,6 +44,7 @@
             android:layout_weight="1"
             style="?attr/buttonBarButtonStyle"
             android:text="@string/enter_app"
+            android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="@dimen/sp_14"/>
     </LinearLayout>

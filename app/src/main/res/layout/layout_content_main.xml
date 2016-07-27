@@ -13,6 +13,13 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:title="@string/label_main">
     </android.support.v7.widget.Toolbar>
+    <!--<FrameLayout-->
+        <!--android:id="@+id/container"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+    <!--</FrameLayout>-->
+
+    <!--<include layout="@layout/activity_main"></include>-->
 
     <!--最热门-->
     <!--我的收藏-->
@@ -21,6 +28,6 @@
     <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

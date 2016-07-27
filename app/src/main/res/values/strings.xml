@@ -1,20 +1,20 @@
 <resources>
     <string name="app_name">GitDroid</string>
 
-    <string name="login_github">登录GitHub</string>
-    <string name="enter_app">直接使用</string>
+    <string name="login_github">login gitHub</string>
+    <string name="enter_app">Directly use</string>
 
-    <string name="welcome_to_gitdroid">Welcome to GitDroid</string>
-    <string name="welcome_introduction">全平台管理你的GitHub账号，时刻跟踪最热门的开源库</string>
+    <string name="welcome_to_gitdroid">Welcome to GitDroid!</string>
+    <string name="welcome_introduction">Full platform to manage your GitHub account,time to track the most popular open source library</string>
 
     <string name="github">GitHub</string>
     <string name="arsenal">Arsenal</string>
-    <string name="arsenal_introduction">你的个人Android开发兵工厂，十八般武器样样精通</string>
+    <string name="arsenal_introduction">Your personal android development Arsenal,eighteen Weapon Mastery</string>
 
     <string name="tips_and_tricks">Tips and Tricks</string>
-    <string name="tips_introduction">每日积累编程干货，聚沙成塔，你也能成大牛！</string>
+    <string name="tips_introduction">Every journey begins with the first step!</string>
 
-    <string name="label_main">GitDroid (未登陆)</string>
+    <string name="label_main">GitDroid(Not login)</string>
 
 
     <string name="hot_repo">Hot</string>
@@ -27,10 +27,10 @@
     <string name="search">Search</string>
 
     <string name="no_content">No content</string>
-    <string name="refresh_error">Refresh error: %s</string>
+    <string name="refresh_error">Refresh error:%s</string>
     <string name="switch_account">Switch account</string>
 
-    <string name="load_more_error">Load more error: %s</string>
+    <string name="load_more_error">Load more error:%s</string>
     <string name="load_more_end">Load more end</string>
 
     <string name="repo_group_all">All group</string>
@@ -39,9 +39,9 @@
 
     <string name="delete" translatable="false">Delete</string>
 
-    <string name="set_favorite_success">Collection success！</string>
+    <string name="set_favorite_success">Collection success!</string>
 
-    <string name="nothing_here_have_a_rest">Nothing here,have a rest！</string>
+    <string name="nothing_here_have_a_rest">Nothing here,have a rest!</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

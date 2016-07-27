@@ -27,6 +27,7 @@ public class Pager2 extends FrameLayout {
         ivBubble2 = (ImageView) findViewById(R.id.ivBubble2);
         ivBubble3 = (ImageView) findViewById(R.id.ivBubble3);
 
+        //先设置不可见，为了后面让他动画显示
         ivBubble1.setVisibility(View.GONE);
         ivBubble2.setVisibility(View.GONE);
         ivBubble3.setVisibility(View.GONE);
@@ -47,13 +48,15 @@ public class Pager2 extends FrameLayout {
                     ivBubble2.setVisibility(View.VISIBLE);
                     YoYo.with(Techniques.BounceInRight).duration(500).playOn(ivBubble2);
                 }
-            }, 550);postDelayed(new Runnable() {
+            }, 550);
+            postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     ivBubble3.setVisibility(View.VISIBLE);
                     YoYo.with(Techniques.RotateInUpLeft).duration(500).playOn(ivBubble3);
                 }
             }, 1050);
+
         }
     }
 }
