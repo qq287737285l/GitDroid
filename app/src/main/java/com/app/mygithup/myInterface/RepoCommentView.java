@@ -11,6 +11,6 @@ public interface RepoCommentView {
     void showErrorView();
     void showEmptyView();
     void stopRefresh();
-    void showMessage();
+    void showMessage(String msg);
     void refreshData(List<String> list);
 }

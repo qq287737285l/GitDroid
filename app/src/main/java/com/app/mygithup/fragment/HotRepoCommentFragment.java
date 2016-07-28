@@ -11,8 +11,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.app.mygithup.R;
-import com.app.mygithup.myInterface.RepoCommentView;
+import com.app.mygithup.commons.LogUtils;
+import com.app.mygithup.components.FootView;
+import com.app.mygithup.myInterface.RepoView;
 import com.app.mygithup.presenter.RepoCommentPresenter;
+import com.mugen.Mugen;
+import com.mugen.MugenCallbacks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +31,7 @@ import in.srain.cube.views.ptr.header.StoreHouseHeader;
 /**
  * Created by Administrator on 2016/7/27.
  */
-public class HotRepoCommentFragment extends Fragment implements RepoCommentView {
+public class HotRepoCommentFragment extends Fragment implements RepoView {
     @BindView(R.id.lvRepos)
     ListView lvRepos;
     @BindView(R.id.ptrClassicFrameLayout)
@@ -39,6 +43,7 @@ public class HotRepoCommentFragment extends Fragment implements RepoCommentView 
 
     private ArrayAdapter<String> adapter;
     private RepoCommentPresenter presenter;
+    private FootView footView;
 
     @Nullable
     @Override
@@ -56,6 +61,10 @@ public class HotRepoCommentFragment extends Fragment implements RepoCommentView 
         adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, new ArrayList<String>());
         lvRepos.setAdapter(adapter);
         initRefresh();
+        LogUtils.e("1");
+
+        initLoadMore();
+        LogUtils.e("2");
     }
 
     private void initRefresh() {
@@ -73,10 +82,38 @@ public class HotRepoCommentFragment extends Fragment implements RepoCommentView 
         //设置下拉后显示的字
         header.initWithString("A new World is coming");
 //        //边距左上右下
-        header.setPadding(10,60,10,60);
+        header.setPadding(10, 60, 10, 60);
         ptrClassicFrameLayout.setHeaderView(header);
         ptrClassicFrameLayout.addPtrUIHandler(header);
         ptrClassicFrameLayout.setBackgroundResource(R.color.colorRefresh);
+    }
+
+    private void initLoadMore() {
+        footView = new FootView(getContext());
+        LogUtils.e("3");
+
+        Mugen.with(lvRepos, new MugenCallbacks() {
+            @Override
+            public void onLoadMore() {
+                LogUtils.e("4");
+
+                presenter.loadMore();
+            }
+            @Override
+            public boolean isLoading() {
+                LogUtils.e("5");
+
+                return lvRepos.getFooterViewsCount() > 0 && footView.isLoading();
+            }
+            @Override
+            public boolean hasLoadedAllItems() {
+                LogUtils.e("6");
+
+                return lvRepos.getFooterViewsCount() > 0 && footView.isComplete();
+            }
+        }).start();
+        LogUtils.e("main");
+
     }
 
     @Override
@@ -102,7 +139,7 @@ public class HotRepoCommentFragment extends Fragment implements RepoCommentView 
     }
 
     @Override
-    public void showMessage() {
+    public void showMessage(String msg) {
 
     }
 
@@ -110,6 +147,39 @@ public class HotRepoCommentFragment extends Fragment implements RepoCommentView 
     public void refreshData(List<String> list) {
         adapter.clear();
         adapter.addAll(list);
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void showLoadMoreLoading() {
+        LogUtils.e("7");
+
+        if (lvRepos.getFooterViewsCount() == 0) {
+            lvRepos.addFooterView(footView);
+        }
+        footView.showLoading();
+    }
+
+    @Override
+    public void hideLoadMore() {
+        LogUtils.e("8");
+
+        lvRepos.removeFooterView(footView);
+    }
+
+    @Override
+    public void showLoadMoreErro(String erroMsg) {
+        if (lvRepos.getFooterViewsCount() == 0) {
+            lvRepos.addFooterView(footView);
+        }
+        footView.showError(erroMsg);
+    }
+
+    @Override
+    public void addMoreData(List<String> datas) {
+        LogUtils.e("9");
+
+        adapter.addAll(datas);
         adapter.notifyDataSetChanged();
     }
 }
