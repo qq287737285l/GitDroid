@@ -11,8 +11,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.app.mygithup.R;
-import com.app.mygithup.myInterface.TreatView;
-import com.app.mygithup.presenter.RepoListPresenter;
+import com.app.mygithup.myInterface.RepoCommentView;
+import com.app.mygithup.presenter.RepoCommentPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ import in.srain.cube.views.ptr.header.StoreHouseHeader;
 /**
  * Created by Administrator on 2016/7/27.
  */
-public class HotRepoCommentFragment extends Fragment implements TreatView {
+public class HotRepoCommentFragment extends Fragment implements RepoCommentView {
     @BindView(R.id.lvRepos)
     ListView lvRepos;
     @BindView(R.id.ptrClassicFrameLayout)
@@ -38,7 +38,7 @@ public class HotRepoCommentFragment extends Fragment implements TreatView {
     TextView errorView;
 
     private ArrayAdapter<String> adapter;
-    private RepoListPresenter presenter;
+    private RepoCommentPresenter presenter;
 
     @Nullable
     @Override
@@ -52,7 +52,7 @@ public class HotRepoCommentFragment extends Fragment implements TreatView {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
-        presenter = new RepoListPresenter(this);
+        presenter = new RepoCommentPresenter(this);
         adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, new ArrayList<String>());
         lvRepos.setAdapter(adapter);
         initRefresh();
