@@ -1,4 +1,4 @@
-package com.app.mygithup.myInterface;
+package com.app.mygithup.hotrepo.repolist.view;
 
 /**
  * Created by Administrator on 2016/7/28.

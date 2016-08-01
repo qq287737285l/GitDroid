@@ -1,10 +1,10 @@
-package com.app.mygithup.adapter;
+package com.app.mygithup.hotrepo;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.app.mygithup.fragment.HotRepoCommentFragment;
+import com.app.mygithup.hotrepo.repolist.RepoCommentFragment;
 
 import java.util.List;
 
@@ -42,7 +42,7 @@ public class HotRepoAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
 //        return list.get(position);
-        return new HotRepoCommentFragment();
+        return new RepoCommentFragment();
     }
 
     @Override

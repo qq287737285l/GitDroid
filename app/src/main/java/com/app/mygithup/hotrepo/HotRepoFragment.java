@@ -1,4 +1,4 @@
-package com.app.mygithup.fragment;
+package com.app.mygithup.hotrepo;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.app.mygithup.R;
-import com.app.mygithup.adapter.HotRepoAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

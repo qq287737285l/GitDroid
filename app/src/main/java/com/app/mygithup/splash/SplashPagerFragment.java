@@ -1,4 +1,4 @@
-package com.app.mygithup.fragment;
+package com.app.mygithup.splash;
 
 import android.animation.ArgbEvaluator;
 import android.os.Bundle;
@@ -13,8 +13,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.app.mygithup.R;
-import com.app.mygithup.activity.pager.Pager2;
-import com.app.mygithup.adapter.SplashPagerAdapter;
+import com.app.mygithup.splash.pager.Pager2;
+import com.app.mygithup.splash.SplashPagerAdapter;
 
 import me.relex.circleindicator.CircleIndicator;
 

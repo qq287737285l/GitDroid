@@ -1,13 +1,13 @@
-package com.app.mygithup.adapter;
+package com.app.mygithup.splash;
 
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.app.mygithup.activity.pager.Pager0;
-import com.app.mygithup.activity.pager.Pager1;
-import com.app.mygithup.activity.pager.Pager2;
+import com.app.mygithup.splash.pager.Pager0;
+import com.app.mygithup.splash.pager.Pager1;
+import com.app.mygithup.splash.pager.Pager2;
 
 /**
  * Created by Administrator on 2016/7/26.

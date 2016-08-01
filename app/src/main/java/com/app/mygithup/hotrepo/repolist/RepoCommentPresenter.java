@@ -1,11 +1,9 @@
-package com.app.mygithup.presenter;
+package com.app.mygithup.hotrepo.repolist;
 
 import android.os.AsyncTask;
 
-import com.app.mygithup.activity.net.GitHubApi;
-import com.app.mygithup.activity.net.GitHubClient;
 import com.app.mygithup.commons.LogUtils;
-import com.app.mygithup.myInterface.RepoView;
+import com.app.mygithup.hotrepo.repolist.view.RepoView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,11 +27,11 @@ public class RepoCommentPresenter {
 
     //下拉刷新
     public void refresh() {
-//        new RefreshTask().execute();
-        GitHubClient gitHubClient = new GitHubClient();
-        GitHubApi gitHubApi = gitHubClient.getGitHubApi();
-        Call<ResponseBody> call = gitHubApi.getRetrofitContributors();
-        call.enqueue(refreshCallBack);
+        new RefreshTask().execute();
+//        GitHubClient gitHubClient = new GitHubClient();
+//        GitHubApi gitHubApi = gitHubClient.getGitHubApi();
+//        Call<ResponseBody> call = gitHubApi.getRetrofitContributors();
+//        call.enqueue(refreshCallBack);
     }
 
     private final Callback<ResponseBody> refreshCallBack = new Callback<ResponseBody>() {
@@ -43,18 +41,18 @@ public class RepoCommentPresenter {
             if (response.isSuccessful()) {
                 try {
                     ResponseBody body = response.body();
-                    if(body == null){
-                        repoView.showMessage("未知错误。。。");
-                    }else{
+                    if (body == null) {
+                        repoView.showMessage("Unknown error...");
+                    } else {
                         String data = body.string();
-                        LogUtils.e("拿回来的数据"+data);
+                        LogUtils.e("拿回来的数据" + data);
                         repoView.showContentView();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }else{
-                repoView.showMessage("error:"+response.code());
+            } else {
+                repoView.showMessage("error:" + response.code());
             }
         }
 

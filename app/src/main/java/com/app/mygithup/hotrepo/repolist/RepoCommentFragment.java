@@ -1,4 +1,4 @@
-package com.app.mygithup.fragment;
+package com.app.mygithup.hotrepo.repolist;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,8 +13,7 @@ import android.widget.TextView;
 import com.app.mygithup.R;
 import com.app.mygithup.commons.LogUtils;
 import com.app.mygithup.components.FootView;
-import com.app.mygithup.myInterface.RepoView;
-import com.app.mygithup.presenter.RepoCommentPresenter;
+import com.app.mygithup.hotrepo.repolist.view.RepoView;
 import com.mugen.Mugen;
 import com.mugen.MugenCallbacks;
 
@@ -31,7 +30,7 @@ import in.srain.cube.views.ptr.header.StoreHouseHeader;
 /**
  * Created by Administrator on 2016/7/27.
  */
-public class HotRepoCommentFragment extends Fragment implements RepoView {
+public class RepoCommentFragment extends Fragment implements RepoView {
     @BindView(R.id.lvRepos)
     ListView lvRepos;
     @BindView(R.id.ptrClassicFrameLayout)
@@ -91,29 +90,24 @@ public class HotRepoCommentFragment extends Fragment implements RepoView {
     private void initLoadMore() {
         footView = new FootView(getContext());
         LogUtils.e("3");
-
         Mugen.with(lvRepos, new MugenCallbacks() {
             @Override
             public void onLoadMore() {
                 LogUtils.e("4");
-
                 presenter.loadMore();
             }
             @Override
             public boolean isLoading() {
                 LogUtils.e("5");
-
                 return lvRepos.getFooterViewsCount() > 0 && footView.isLoading();
             }
             @Override
             public boolean hasLoadedAllItems() {
                 LogUtils.e("6");
-
                 return lvRepos.getFooterViewsCount() > 0 && footView.isComplete();
             }
         }).start();
         LogUtils.e("main");
-
     }
 
     @Override
@@ -153,7 +147,6 @@ public class HotRepoCommentFragment extends Fragment implements RepoView {
     @Override
     public void showLoadMoreLoading() {
         LogUtils.e("7");
-
         if (lvRepos.getFooterViewsCount() == 0) {
             lvRepos.addFooterView(footView);
         }
@@ -163,7 +156,6 @@ public class HotRepoCommentFragment extends Fragment implements RepoView {
     @Override
     public void hideLoadMore() {
         LogUtils.e("8");
-
         lvRepos.removeFooterView(footView);
     }
 
@@ -178,7 +170,6 @@ public class HotRepoCommentFragment extends Fragment implements RepoView {
     @Override
     public void addMoreData(List<String> datas) {
         LogUtils.e("9");
-
         adapter.addAll(datas);
         adapter.notifyDataSetChanged();
     }

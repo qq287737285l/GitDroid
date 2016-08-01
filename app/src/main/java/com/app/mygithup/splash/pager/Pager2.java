@@ -1,4 +1,4 @@
-package com.app.mygithup.activity.pager;
+package com.app.mygithup.splash.pager;
 
 import android.content.Context;
 import android.view.LayoutInflater;
